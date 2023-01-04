@@ -6,9 +6,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
 }  //sprawdza, czy jest ustawiona sesja
 ?>
 
-
 <?php
-
 // Łączenie z bazą danych
 $db = mysqli_connect('localhost', 'root', '', 'wypozyczalnia');
 
@@ -17,13 +15,15 @@ if (isset($_POST['id'])) {
   // Zczytywanie ID samochodu do usunięcia
   $id = mysqli_real_escape_string($db, $_POST['id']);
 
-  // Sprawdzanie czy samochód jest dostępny
-  $query = "SELECT * FROM samochody WHERE id = '$id' AND dostepnosc = '1'";
-  $result = mysqli_query($db, $query);
-  if (mysqli_num_rows($result) > 0) {
-    // Samochód jest dostępny więc zostaje usunięty z bazy danych
-    $query = "DELETE FROM samochody WHERE id = '$id'";
-    mysqli_query($db, $query);
+  // Przygotowywanie zapytania
+  $stmt = mysqli_prepare($db, "DELETE FROM samochody WHERE id = ? AND dostepnosc = '1'");
+  // Podpinanie parametrów do zapytania
+  mysqli_stmt_bind_param($stmt, "s", $id);
+  // Wykonywanie zapytania
+  mysqli_stmt_execute($stmt);
+
+  if (mysqli_stmt_affected_rows($stmt) > 0) {
+    // Samochód został usunięty z bazy danych
     echo '<p>Samochód został usunięty z bazy</p>';
   } else {
     // Samochód nie jest dostępny więc nie dochodzi do usunięcia
@@ -31,7 +31,9 @@ if (isset($_POST['id'])) {
   }
 }
 ?>
+
 <a href="../admin/dashboard.php" role="button">OK</a>
+
 
 
 
