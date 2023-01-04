@@ -17,7 +17,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
     <div class="col-12">
         <h1 class="text-center font-weight-bold p-5">REZERWACJE</h1>
         <div class="text-center">
-            <a href="../index.php" class="m-2">POWRÓT</a> | <a href="../admin/add.html"class="m-2">DODAJ AUTO</a>  |  <a href="logout.php" class="m-2">WYLOGUJ</a>
+            <a href="../index.php" class="m-2">POWRÓT</a> | <a href="../admin/add.html"class="m-2">DODAJ AUTO</a> | <a href="../admin/delete.php"class="m-2">USUN AUTO</a>  |  <a href="logout.php" class="m-2">WYLOGUJ</a>
         </div>
        
     </div>
