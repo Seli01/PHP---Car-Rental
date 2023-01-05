@@ -17,9 +17,8 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
     <div class="col-12">
         <h1 class="text-center font-weight-bold p-5">REZERWACJE</h1>
         <div class="text-center">
-            <a href="../index.php" class="m-2">POWRÓT</a> | <a href="../admin/add.html"class="m-2">DODAJ AUTO</a> | <a href="../admin/delete.php"class="m-2">USUN AUTO</a>  |  <a href="logout.php" class="m-2">WYLOGUJ</a>
+            <a href="../index.php" class="m-2">POWRÓT</a> | <a href="../admin/add.html"class="m-2">DODAJ AUTO</a> | <a href="../admin/del_table.php"class="m-2">USUN AUTO</a>  |  <a href="logout.php" class="m-2">WYLOGUJ</a>
         </div>
-       
     </div>
 
     <div class="container mt-4">
@@ -27,7 +26,7 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col"></th>
+                    <th scope="col">Nr zamówienia</th>
                     <th scope="col">Samochód</th>
                     <th scope="col">Wypożyczający</th>
                     <th scope="col">Koszt</th>
@@ -36,21 +35,23 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
                 </thead>
                 <tbody class="table-group-divider">
 
-                  <?php
+                <?php
 
-                    $rows = generate_dashboard(); 
-                    //count - zwraca liczbę komórek danej tablicy
-                    for($i=0;$i<count($rows);$i++){ 
-                      echo '<tr>';
-                      echo '<th scope="row">'.($i+1).'</th>';
-                      echo '<td>'.$rows[$i]['nazwa'].'</td>';
-                      echo '<td>'.$rows[$i]['nazwisko'].'</td>';
-                      echo '<td>'.$rows[$i]['koszt'].'</td>';
-                      echo '<td>'.$rows[$i]['data_zwrotu'].'</td>';
-                      echo '</tr>';
-                    } 
+                $rows = generate_dashboard(); 
+                //count - zwraca liczbę komórek danej tablicy
+                for($i=0;$i<count($rows);$i++){ 
+                  echo '<tr>';
+                  echo '<td>'.$rows[$i]['id'].'</td>';
+                  echo '<td>'.$rows[$i]['nazwa'].'</td>';
+                  echo '<td>'.$rows[$i]['nazwisko'].'</td>';
+                  echo '<td>'.$rows[$i]['koszt'].'</td>';
+                  echo '<td>'.$rows[$i]['data_zwrotu'].'</td>';
+                  echo '<td><a href="del_rezerwacji.php?id='.$rows[$i]['id'].'">Usuń</a></td>';
+                  echo '</tr>';
+                } 
 
-                  ?>
+                ?>
+
                      
 
                 </tbody>
