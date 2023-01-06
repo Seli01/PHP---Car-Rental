@@ -1,5 +1,6 @@
 <?php
 require('functions.php');
+require('pop_up.php');
 ?>
 <!doctype html>
 <html lang="pl">
@@ -36,6 +37,10 @@ require('functions.php');
                         </li>
                         <li class="nav-item p-2">
                             <a class="nav-link" onclick="smoothScroll('#rezerwacja')">ZAREZERWUJ</a>
+                        </li>
+                        <li class="nav-item p-2">
+                            <a href = "../php/customer/login.html" class="nav-link" >LOGIN/REJESTRACJA</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -182,9 +187,14 @@ require('functions.php');
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-4">
-                            <input type="submit" value="rezerwuj" class="btn btn-danger col-12">
+                        <div class="col-12 mt-4" >
+                            <input type="submit" value="Rezerwuj" class="btn btn-danger col-12" onclick="popUp('<?php echo $id; ?>')">
                         </div>
+                        <script>
+                        function popUp(id) {
+                        alert('Numer zamówienia: ' + id + '\nMożesz sprawdzić swój stan zamówienia logując się przy pomocy nr zamówienia i nr telefonu');
+                        }
+                        </script>
 
                     </form>
                 </div>
@@ -197,7 +207,7 @@ require('functions.php');
     <!--Formularz rezerwacji-->
     <footer>
         <div class="col-12">
-            <h6 class="text-center font-weight-bold p-1">Realizacja: Mateusz Ciołek | Jan Seeliger</h6>
+            <h6 class="text-center font-weight-bold p-1">Realizacja: Mateusz Ciołek | Jan Seeliger | Mateusz Wojciechowski | Adam Drewing</h6>
         </div>
     </footer>
         <script src="js/Mojeskrypty.js"></script>    
