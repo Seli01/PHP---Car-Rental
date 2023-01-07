@@ -1,6 +1,5 @@
 <?php
 require('functions.php');
-require('pop_up.php');
 ?>
 <!doctype html>
 <html lang="pl">
@@ -188,13 +187,9 @@ require('pop_up.php');
                             </div>
                         </div>
                         <div class="col-12 mt-4" >
-                            <input type="submit" value="Rezerwuj" class="btn btn-danger col-12" onclick="popUp('<?php echo $id; ?>')">
+                            <input type="submit" value="Rezerwuj" class="btn btn-danger col-12">
                         </div>
-                        <script>
-                        function popUp(id) {
-                        alert('Numer zamówienia: ' + id + '\nMożesz sprawdzić swój stan zamówienia logując się przy pomocy nr zamówienia i nr telefonu');
-                        }
-                        </script>
+                       
 
                     </form>
                 </div>

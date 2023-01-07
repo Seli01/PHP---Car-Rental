@@ -1,6 +1,5 @@
 <?php
     require('admin/sql_connect.php'); //dodanie pliku łączącego z db
-
     function get_cars($type){
         //oznaczenie funkcji łączenia z db jako globalnej, aby móc z niej korzystać
 
@@ -73,7 +72,7 @@ if($statement = $mysqli->prepare($sql_2)){
             if($statement_2->bind_param('iissi',$client_id,$car_id,$from_date,$to_date,$cost)){
                 $statement_2->execute();
                 $mysqli->query("UPDATE samochody SET dostepnosc = 0 WHERE id = $car_id" );
-                header("Location: index.php");
+                header("Location: skrypt.php");
             }
         }
     } else {
