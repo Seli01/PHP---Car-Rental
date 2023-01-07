@@ -1,4 +1,10 @@
 <?php
+session_start();
+require('functions.php');
+if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
+  die("Dostęp zabroniony!");
+
+}  
   // Connect to the database
   $host = "localhost";
   $user = "root";
@@ -45,6 +51,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Potwierdzenie Zamówienia</title>
   <style>
     /* Add some style to the rachunek */
     body {
