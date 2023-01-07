@@ -28,7 +28,7 @@
 
     function generate_dashboard() {
         global $mysqli;
-        $sql = "SELECT samochody.nazwa, klienci.nazwisko, rezerwacje.koszt, rezerwacje.data_zwrotu FROM rezerwacje INNER JOIN samochody ON rezerwacje.samochod_id = samochody.id INNER JOIN klienci ON klienci.id = rezerwacje.klient_id";
+        $sql = "SELECT rezerwacje.id, samochody.nazwa, klienci.nazwisko, rezerwacje.koszt, rezerwacje.data_zwrotu FROM rezerwacje INNER JOIN samochody ON rezerwacje.samochod_id = samochody.id INNER JOIN klienci ON klienci.id = rezerwacje.klient_id";
 
 
     $result = $mysqli->query($sql);
