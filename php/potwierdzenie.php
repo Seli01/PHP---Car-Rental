@@ -1,10 +1,5 @@
 <?php
-session_start();
-require('functions.php');
-if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
-  die("Dostęp zabroniony!");
-
-}  
+  
   // Connect to the database
   $host = "localhost";
   $user = "root";
@@ -116,4 +111,5 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
   Jeśli zajdzie potrzeba może Pan/Pani anulować rezerwacje, w tym celu należy użyć nr zamówienia oraz nr telefonu podczas logowawnia
 </body>
 </html>
+
 
