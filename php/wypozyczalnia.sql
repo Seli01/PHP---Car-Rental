@@ -175,7 +175,7 @@ DELIMITER $$
 --
 -- Zdarzenia
 --
-CREATE DEFINER=`root`@`localhost` EVENT `update_cars` ON SCHEDULE EVERY 1 HOUR STARTS '2023-01-02 23:27:47' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE samochody SET dostepnosc = 1 WHERE id IN (SELECT saochod_id FROM rezerwacje WHERE data_zwrotu <= NOW())$$
+CREATE DEFINER=`root`@`localhost` EVENT `update_cars` ON SCHEDULE EVERY 1 HOUR STARTS '2023-01-02 23:27:47' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE samochody SET dostepnosc = 1 WHERE id IN (SELECT samochod_id FROM rezerwacje WHERE data_zwrotu <= NOW())$$
 
 DELIMITER ;
 COMMIT;
