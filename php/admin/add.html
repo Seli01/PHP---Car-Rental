@@ -1,3 +1,17 @@
+<form action="add.php" method="post" enctype="multipart/form-data">
+  <label for="nazwa">Nazwa:</label><br>
+  <input type="text" id="nazwa" name="nazwa"><br>
+  <label for="typ">Typ:</label><br>
+  <input type="text" id="typ" name="typ"><br>
+  <label for="cena">Cena (h):</label><br>
+  <input type="text" id="cena" name="cena"><br>
+  <label for="zdjecie_url">Zdjecie:</label><br>
+  <input type="file" id="zdjecie_url" name="zdjecie_url"><br>
+  <label for="dostepnosc">Dostepnosc:</label><br>
+  <input type="checkbox" id="dostepnosc" name="dostepnosc" value="1">Tak<br>
+  <input type="submit" value="Submit">
+</form> 
+
 
 <style>
   body {
@@ -43,17 +57,3 @@
     width: 50%;
   }
 </style>
-
-<form action="add.php" method="post" enctype="multipart/form-data">
-  <label for="nazwa">Nazwa:</label><br>
-  <input type="text" id="nazwa" name="nazwa"><br>
-  <label for="typ">Typ:</label><br>
-  <input type="text" id="typ" name="typ"><br>
-  <label for="cena">Cena (h):</label><br>
-  <input type="text" id="cena" name="cena"><br>
-  <label for="zdjecie_url">Zdjecie:</label><br>
-  <input type="file" id="zdjecie_url" name="zdjecie_url"><br>
-  <label for="dostepnosc">Dostepnosc:</label><br>
-  <input type="checkbox" id="dostepnosc" name="dostepnosc" value="1">Tak<br>
-  <input type="submit" value="Submit">
-</form> 

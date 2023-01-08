@@ -13,14 +13,14 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
     <th>Akcja</th>
   </tr>
   <?php
-  // Connect to the database
+  // Łączenie z bazą danych
   $db = mysqli_connect('localhost', 'root', '', 'wypozyczalnia');
 
-  // Retrieve the list of cars from the database
+  // Zczytywanie listy aut z bazy danych
   $query = "SELECT * FROM samochody";
   $result = mysqli_query($db, $query);
 
-  // Generate the HTML for the table rows
+  // Tworzenie tabeli HTML dla listy
   while ($row = mysqli_fetch_array($result)) {
     echo '<tr>';
     echo '<td>' . $row['id'] . '</td>';
@@ -28,10 +28,48 @@ if(!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] !== true){
     echo '<td>';
     echo '<form action="delete_script.php" method="post">';
     echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
-    echo '<input type="submit" value="Usuń">';
+    echo '<input type="submit" class=delete-button value="Usuń">';
     echo '</form>';
     echo '</td>';
     echo '</tr>';
   }
   ?>
 </table>
+
+
+<style>
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  color: #444;
+}
+
+th {
+  background-color: #0074D9;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.delete-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+</style>

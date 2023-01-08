@@ -1,13 +1,12 @@
 <?php
   
-  // Connect to the database
   $host = "localhost";
   $user = "root";
   $password = "";
   $dbname = "wypozyczalnia";
   $conn = mysqli_connect($host, $user, $password, $dbname);
 
-  // Check connection
+  // Sprawdzanie połączenia
   if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
   }
@@ -27,17 +26,17 @@
   $result2 = mysqli_query($conn, $sql2);
   $row2 = mysqli_fetch_assoc($result2);
   $telefon = $row2['numer_telefonu'];
-  //Wypozyczony kwota
+  //Kwota
   $sql3 = "SELECT koszt FROM rezerwacje ORDER BY id DESC LIMIT 1";
   $result3 = mysqli_query($conn, $sql3);
   $row3 = mysqli_fetch_assoc($result3);
   $kwota = $row3['koszt'];
-
+  //Data wypozyczenia
   $sql4 = "SELECT data_wypozyczenia FROM rezerwacje ORDER BY id DESC LIMIT 1";
   $result4 = mysqli_query($conn, $sql4);
   $row4 = mysqli_fetch_assoc($result4);
   $data = $row4['data_wypozyczenia'];
-  // Close the connection
+  // Zamkniecie połączenia
   mysqli_close($conn);
 ?>
 
@@ -48,7 +47,6 @@
 <head>
     <title>Potwierdzenie Zamówienia</title>
   <style>
-    /* Add some style to the rachunek */
     body {
       font-family: Arial, sans-serif;
       font-size: 14px;
@@ -111,5 +109,4 @@
   Jeśli zajdzie potrzeba może Pan/Pani anulować rezerwacje, w tym celu należy użyć nr zamówienia oraz nr telefonu podczas logowawnia
 </body>
 </html>
-
 
