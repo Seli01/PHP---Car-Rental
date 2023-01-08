@@ -26,7 +26,7 @@ require('functions.php');
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item p-2">
-                            <a class="nav-link" href="#">STRONA GŁÓWNA</a>
+                            <a class="nav-link" href="index.php">STRONA GŁÓWNA</a>
                         </li>
                         <li class="nav-item p-2">
                             <a class="nav-link" onclick="smoothScroll('#dostepne')">DOSTĘPNE SAMOCHODY</a>
