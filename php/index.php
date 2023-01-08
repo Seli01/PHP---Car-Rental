@@ -38,7 +38,7 @@ require('functions.php');
                             <a class="nav-link" onclick="smoothScroll('#rezerwacja')">ZAREZERWUJ</a>
                         </li>
                         <li class="nav-item p-2">
-                            <a href = "../php/customer/login.html" class="nav-link" >LOGIN/REJESTRACJA</a>
+                            <a href = "" class="nav-link" >SPRAWDŹ ZAMÓWIENIE</a>
                         </li>
                     </ul>
                 </div>
